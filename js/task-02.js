@@ -7,20 +7,15 @@ const ingredients = [
   "Condiments",
 ];
 
-const ulElement = document.getElementById("ingredients");
+const ingredientsList = document.querySelector("#ingredients");
+const ingredientsItems = document.createElement("li");
 
-ingredients.forEach((ingredient) => {
-  // Створити новий <li> елемент
-  const liElement = document.createElement("li");
-
-  // Додати текстовий вміст (назви інгредієнта) в <li> елемент
-  liElement.textContent = ingredient;
-
-  // Додати клас "item" до <li> елементу
-  liElement.classList.add("item");
-
-  // Додати <li> елемент до списку ul#ingredients
-  ulElement.appendChild(liElement);
+const markUp = ingredients.map((ingredient) => {
+  const ingredientsItems = document.createElement("li");
+  ingredientsItems.classList.add("item");
+  ingredientsItems.textContent = `${ingredient}`;
+  return ingredientsItems;
 });
 
-ulElement.append(...ulElement.children);
+ingredientsList.append(...markUp);
+console.log(ingredientsList);

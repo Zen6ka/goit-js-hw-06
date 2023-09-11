@@ -3,9 +3,12 @@ const inputField = document.querySelector("#validation-input");
 inputField.addEventListener("blur", onFocusChange);
 
 function onFocusChange(event) {
-  const symbolLength = inputField.dataset.length;
+  const symbolLength = inputField.dataset.length; //6
 
-  if ((inputContentLength = Number(symbolLength))) {
+  //довжина введеного рядка
+  const inputContentLength = inputField.value.length;
+
+  if (inputContentLength === Number(symbolLength)) {
     inputField.classList.remove("invalid");
     inputField.classList.add("valid");
   } else {
